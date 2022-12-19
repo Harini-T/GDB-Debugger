@@ -1,0 +1,24 @@
+GDB - GNU Project debugger - developed by Richard Stallman 
+
+DDD - Data Display Debugger - GUI of GDB
+
+
+The Essence of Debugging : The Principle of Confirmation
+
+Other Debugging Principles:
+	Start small
+	Use a top-down approach
+	Use a debugigng tool to determine the location of a segmentation fault
+	Determine the location of an infinite loop by issuing an interrupt
+	Use binary search
+	
+	
+Main Debugger Operations
+	Stepping through the source code:
+		Breakpoints
+		Single-stepping
+		Resume operation
+		Temporary breakpoints
+	Inspecting variables
+	Issuing an "All Points Bulletin" for changes to a variable
+	Moving Up and Down the call stack
