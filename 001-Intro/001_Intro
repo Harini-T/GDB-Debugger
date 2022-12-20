@@ -22,3 +22,34 @@ Main Debugger Operations
 	Inspecting variables
 	Issuing an "All Points Bulletin" for changes to a variable
 	Moving Up and Down the call stack
+	
+	
+	
+1. insert_sort.c
+
+gcc -g -Wall -o insert_sort ins.c
+	
+	-g : tell the compiler to save the symbol table - that is the list of memory address corresponding to your program's variables and lines of code - within the generated executable file
+	
+	This is essential step that allows you to refer to the variables names and line numbers in the source code during a debugging session. Without this step, you could not ask the debugger to "stop at line 30" or "print the value of x", for example.
+	
+	Start small principle
+	first try sorting just 2 numbers
+	
+	$ ./insert_sort 12 5
+	(execution halted by user hitting ctrl-c)
+	
+	==> program went into infinite loop, we had to kill it by hitting ctrl-c ==> something wrong with the code
+	
+	
+	GDB:
+	gdb insert_sort -tui
+	
+	to enter tui mode using gdb command CTRL-X-A
+	
+	
+	The values designated by $1, $2, $3.. are collectively called value history of debugging session
+	
+	
+	error in line 28 [==]
+	error in line 21 k = num_y
