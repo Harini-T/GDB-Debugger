@@ -1,0 +1,121 @@
+Mechanisms for Pause
+	3 ways to instruct GDB to pause execution of your program
+		1.	Breakpoint - tells GDB to pause execution at a particular location within the program
+		2.	Watchpoint - tells GDB to pause execution when a particular memory location changesvalue
+		3.	Catchpoint - tells GDB to pause execution when a particular event occurs
+		
+		
+You set a breakpoint at a particular "place", when execution reaches that point, the debugger will pause the programs execution.
+	place - line number of source code, address of a code, line of source code. entry into a function
+	
+	
+
+Keeping track of breakpoints
+	Each breakpoint you create is assigned a unique integer identifier starting at 1
+
+
+	
+Breakpoint Lists in GDB
+	When you create a breakpoint, GDB tells you the number assigned to it.
+	
+	if you ever forget what number is assigned to which breakpoint, you can remind yourself with "info breakpoints" command
+	
+	
+	
+Breakpoint Lists in DDD
+
+	point and click interface
+	Selecting Source | Breakpoints will pop up the Breakpoints and Watchpoints window, listing all your breakpoints
+	
+	
+
+Setting breakpoints
+
+	Setting breakpoints in GDB:
+		break function : set a breakpoint at the entry of the function()
+		ex: break main : sets a breakpoint at the entry of main().
+		
+		break line_number : set a breakpoint at line line_number of the currently active source code file
+		ex: break 35
+		
+		break filename:line_number : set a breakpoint at line line_number of the source code file filename. If file not present in current directory, you can give relative path
+		ex: break source/bed.c:35
+		
+		break filename:function : set a breakpoint at the entry of function() within the filename
+		ex: break bed.c:parseArguments
+		
+		
+		
+Breakpoints stay until you delete/disable/quit GDB.
+
+Temporary breakpoint is a breakpoint that is automatically deleted after the first time its reached.
+	tbreak command
+	ex: tbreak foo.c:10 ==> sets a temporary breakpoint at line 10 of file foo.c
+	
+	
+Other break arguments
+	With break +offset or break -offset, you can set a breakpoint offset lines ahead or behind the executing line of source code in the currently selected stack frame.
+	break *address can be used to set a breakpoint at a virtual memory address. 
+	
+	
+	
+	
+	
+	
+	
+Compile test1.c
+gcc -g3 -Wall -Wextra -o test1 test1.c
+gdb test1
+(gdb) break main
+Breakpoint 1 at 0x6: file test1.c, line 4
+
+
+Other types of Breakpoints
+	hbreak - hardware assisted breakpoint - This is a breakpoint which can be set at a memory location without changing the contents of that memory location. This requires hardware support and is mostly useful for EEPROM/ROM debugging.
+	thbreak - temporary hardware assisted breakpoint.
+	
+	
+	rbreak - takes a grep style regular expression and sets a breakpoint at the entry of any function that matches the regular expression
+	
+	
+The problem becomes worse when you compile the program with optimization turned on.
+gcc -O9 -g3 -Wall -Wextra -o test1 test1.c
+
+$ gdb test1
+(gdb) break main
+Breakpoint 1 at 0x3: file test1.c, line 6.
+
+
+Setting breakpoints in DDD
+	right click on the empty space where you want to add breakpoint and select the desired option
+	
+	
+Extended GDB example
+	gcc -g3 -Wall -Wextra -c main.c swapper.c
+	gcc -o swap main.o swapper.o
+	gdb swap
+	
+	
+	
+list swap ==> it will list the code of swap
+
+info breakpoints ==> displays all the breakpoints that have been set
+
+quit command is used to leave GDB
+	
+
+
+
+Persistence of Breakpoints:
+	During debugging session, you should not exit and re-enter GDB to use new version of your program. ==> unnecessary trouble, re-enter breakpoints
+	If you do not exit GDB when you change and recompile your code, the next time you issue GDB's run command, GDB will sense that your code has changed and automatically reload the new version
+	Breakpoints may move - if didnt move, delete  this breakpoint and set a new one
+	
+	
+	For GDB and DDD, we can save breakpoints to some extent. You can place your breakpoints in a .gdbinit startup file in the directory where you have your source code.
+	
+	
+	
+
+Deleting and Disabling Breakpoints:
+	
