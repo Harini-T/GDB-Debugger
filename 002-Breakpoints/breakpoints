@@ -118,4 +118,34 @@ Persistence of Breakpoints:
 	
 
 Deleting and Disabling Breakpoints:
+	Delete when breakpoint is no longer needed.
+	Disbale when you want to skip the breakpoint for timebeing. Re-enable it later.
 	
+	
+	Deleting Breakpoints in GDB
+		delete breakpoint_list ==> deletes breakpoints using their numeric identifiers
+		ex: delete 2
+		ex: delete 2 4
+	
+		delete ==> deletes all the breakpoints. GDB will ask you to confirm this operation unless you issue the "set confirm off" command, which can be places in your .gdbinit startup file.
+		
+		clear ==> clears a breakpoint at the next instruction that GDB will execute. This method is useful when you want to delete the breakpoint that GDB has just reached.
+		
+		clear function
+		clear filename:function
+		clear line_number
+		clear filename:line_number	
+		
+		
+	
+	Disabling Breakpoints in GDB
+		disable breakpoint-list
+		ex: disable 3 5
+		
+		enable breakpoint-list
+		ex: enable 3 5
+		
+		disable ==> disables all existing breakpoints
+		enable ==> enables all existing breakpoints
+		
+		enable once breakpoint-list ==> breakpoint will be disabled after the next time it causes GDB to pause execution
