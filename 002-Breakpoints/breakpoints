@@ -149,3 +149,37 @@ Deleting and Disabling Breakpoints:
 		enable ==> enables all existing breakpoints
 		
 		enable once breakpoint-list ==> breakpoint will be disabled after the next time it causes GDB to pause execution
+		
+		
+Deleting and Disbaling Breakpoints in DDD
+	right click on red stop sign and choose from the options
+	
+	
+Moving breakpoints in DDD
+	drag and drop the breakpoint
+	
+Undoing/Redoing the breakpoint actions in DDD
+	Edit --> undo delete
+	
+	
+Breakpoint attributes
+	info breakpoints  ==> obtain a list of all breakpoints you have set
+	
+	Identifier (Num) : The breakpoints unique identifier
+	Type (Type) : This field tells you whether the breakpoint is a breakpoint, watchpoint or catchpoint
+	Disposition (Disp) : Each breakpoint has a disposition, which indicates what will happend to the breakpoint after the next time it causes GDB to pause the programs execution
+		keep : Breakpoint unchanged, default
+		del : deleted after next time its reached
+		dis : disable after next time its reached
+	Enable Status (Enb) : breakpoint is currently enabled or disabled
+	Address (Address) : Location in memory where the breakpoint is set.
+	Location (What) : shows the line number and filename of location of brakpoint; For watchpoints, this field shows which variable is being watched
+	
+	
+	
+
+Resuming Execution:
+	single stepping ==> step , next commands
+	continue command ==> resume until it hits another breakpoint/program finishes
+	finish or until commands ==>GDB will resume execution and the program will run until either some predetermined condition is met, another breakpoint is reached or program finishes
+	
