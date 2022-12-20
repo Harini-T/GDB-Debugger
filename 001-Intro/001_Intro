@@ -52,4 +52,5 @@ gcc -g -Wall -o insert_sort ins.c
 	
 	
 	error in line 28 [==]
-	error in line 21 k = num_y
+	error in line 21 k = num_y;
+	error in line 39 y[num_y] = new_y;
