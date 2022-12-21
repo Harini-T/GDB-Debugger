@@ -180,6 +180,20 @@ Breakpoint attributes
 
 Resuming Execution:
 	single stepping ==> step , next commands
+		The difference between these two commands is how they handle function calls: next will execute the function, without pausing within it, and then pause at the first statement following the call. step, on the other hand, will pause at the first statement within the function.
 	continue command ==> resume until it hits another breakpoint/program finishes
 	finish or until commands ==>GDB will resume execution and the program will run until either some predetermined condition is met, another breakpoint is reached or program finishes
+	
+	
+Conditional Breakpoints:
+	GDB:
+		break break-args if (condition)
+		ex: break main if (argc > 1)
+		
+	It is possible to set conditions on normal breakpoints to turn them into conditional breakpoints. For ex, if you have set breakpoint 3 as unconditional but now wish to add the condition i==3, simply type "cond 3 i==3"
+	If you later want to remove the condition but keep the breakpoint, simply type "cond 3"
+	
+
+
+Breakpoint Command Lists:
 	
