@@ -1,0 +1,83 @@
+In bintree.c At each node, all elements of the left subtree are less than the value in the given node, and all elements of the right subtree are greater than or equal to the one in the given node. The function insert() creates a new node and places it in the proper position in the tree. The function printtree() displays the elements of any subtree in ascending numerical order, while main() runs a test, printing out the entire sorted array.
+
+p *tmp ==> print the structure entirely  [p print]
+
+disp *tmp ==> disp will automatically print the specified item each time there is a pause in execution
+
+"commands" command :
+	b 37
+	commands 1
+	>p tmp->val
+	>if (tmp->left != 0)
+		>p tmp->left->val
+		>else
+		>printf "%s\n", "none"
+		>end
+	>if (tmp->right != 0)
+		>p tmp->right->val
+		>else
+		>printf "%s\n", "none"
+		>end
+	>end
+	
+"call" command
+
+
+Inspecting Dynamic arrays:
+	int x[25];
+	you can print the entire array by typing "p x"
+	
+	For dynamic arrays, p x is not the answer; p x prints address of array;p *x prints p x[0]; p x[5] prints individual elements
+	
+	
+	In artif file, to check the contents of dynamic array, use "p *x@25"
+	General form: *pointer@number_of_elements
+	
+	
+
+Monitoring Local Variables:
+	info locals
+	
+
+Examinig the Memory Directly:
+	"examine" command
+	
+
+Advanced Options for print and display
+
+	p/x y ==> print calue of y in hex format; c - character, s-string, f-floating point
+	
+	temporarily disable a display item: dis disp 1   [use info disp to find display numbers]
+	enable disp 1 ==> re-enable disp 1
+	undisp 1 ==> delete a display item
+	
+	
+	
+Setting variables from within GDB:
+	In some cases, it is useful to set the value of a variable using the debugger, in the midst of stepping through a program. This way you can quickly answer "what if" questions that arise when you are hypothesizing various sources for a bug.
+	
+	"set" command is used
+	ex:
+		set x=12 ==> will change current value of x to 12
+		
+		You can also set the commandline arguments for your program
+		set args 1 52 19 11
+		
+		info args => you can use to check the arguments of the current function
+		
+		
+
+GDBs Own Variables
+	$1, $2 etc;
+	"value history" --> shows the gdb variable values
+	
+	
+Convenience Variables
+	You have a pointer variable p, which at different times points to different nodes in a linked list. 
+	set $q = p
+	print *$q
+	$q ==> convenience variable
+	
+
+
+
