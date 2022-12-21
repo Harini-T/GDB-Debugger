@@ -1,0 +1,8 @@
+In general program bug can cause one of 2 things to happen:
+	1. It can cause the program to do something that the programmer doesnt intend. ==> bugs are due to flaws in logic.
+	2. It can cause the program to bomb or crash. These bugs are often associated with the mishandling or misuse of pointers
+	
+	
+What really happens when a program crashes:
+	Segmentation fault - memory access problem
+	Memory Layout:	Text section, data section, bss for unintialized data, heap, stack
