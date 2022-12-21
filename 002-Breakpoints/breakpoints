@@ -235,3 +235,14 @@ Commands and Expressions:
 		silent
 		printf "string has a length of %d\n", strlen(string)
 		end
+		
+		
+
+Expressions:
+	An expression in GDB can contain any things:
+		GDB convenience variables
+		Any in-scope variable from your program, like i from the previous example
+		Any kind of string, numerical, or character constant
+		Preprocessor macros, if the program was compiled to include pre-
+		preprocessor debugging information
+		The conditionals, function calls, casts, and operators defined by the language you're using
