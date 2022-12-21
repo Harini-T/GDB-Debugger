@@ -196,4 +196,42 @@ Conditional Breakpoints:
 
 
 Breakpoint Command Lists:
+	After GDB hits a breakpoint, you will almost always inspect a variable. If the same breakpoint gets hit repeatedly (as with a breakpoint inside a loop), you will inspect the same variable repeatedly. Command lists is used to automate the procedure by telling GDB to automatically perform a set of commands each time it reaches a breakpoint
 	
+	commands breakpoint-number
+	...
+	commands
+	...
+	end
+	
+	
+	You can make GDb more quiet about triggering breakpoints using "silent" command, which needs to be the first item in the command list.
+	
+	If the last command in a commands list is "continue", GDB will automatically continue executing the program after it completed the commands in the commands list.
+	
+	ex:
+		command 1
+		silent
+		printf "fibonacci was passed %d.\n", n
+		continue
+		end
+		
+		run
+		
+		
+		
+You might want to do this type of thing in other programs, or at other lines of this program, so we will make a macro out of it using GDB's "define" command
+	ex:
+		define print_and_go		[type y if prompted]
+		printf $ard0, $arg1
+		continue
+		end
+		
+	show user ==> displays list of all macros 
+	
+Commands and Expressions:
+	ex:
+		command 2
+		silent
+		printf "string has a length of %d\n", strlen(string)
+		end
