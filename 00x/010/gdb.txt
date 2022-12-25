@@ -1,0 +1,41 @@
+Starting program: /home/harini/Desktop/Github-Local/GDB-Debugger/00x/010/source_code 
+[Thread debugging using libthread_db enabled]
+Using host libthread_db library "/lib/x86_64-linux-gnu/libthread_db.so.1".
+
+Breakpoint 1, main (argc=1, argv=0x7fffffffe0a8) at source_code.c:12
+12		unsigned int loop = 50;
+7	    return n * factorial(n-1);
+8	}
+9	
+10	int main(int argc, char* argv[])
+11	{
+12		unsigned int loop = 50;
+13		while(loop--) {
+14	    printf("Factorial of number %d is %u\n", 
+15	            loop, 
+16	            factorial(loop));
+$1 = 21845
+1	#include <stdio.h>
+2	
+3	unsigned int factorial(unsigned int n)
+4	{
+5	    if (n == 0)  
+6			return 1;
+7	    return n * factorial(n-1);
+8	}
+9	
+10	int main(int argc, char* argv[])
+Already logging to gdb.txt.
+$2 = 21845
+Program not restarted.
+Continuing.
+
+Breakpoint 2, factorial (n=49) at source_code.c:5
+5	    if (n == 0)  
+7	    return n * factorial(n-1);
+
+Breakpoint 2, factorial (n=48) at source_code.c:5
+5	    if (n == 0)  
+7	    return n * factorial(n-1);
+No symbol "loop" in current context.
+$3 = 48
