@@ -63,10 +63,10 @@ static void read_overflow_compilemem(void)
 
 int main()
 {
-	//read_overflow_compilemem();
+	read_overflow_compilemem();
 	//read_overflow_dynmem();
 	//read_underflow(0);
-	read_underflow(1);
+	//read_underflow(1);
 
 	return 0;
 }
