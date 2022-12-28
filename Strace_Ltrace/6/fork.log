@@ -1,0 +1,55 @@
+14925 execve("./fork", ["./fork"], 0x7ffe781fe5e8 /* 46 vars */) = 0
+14925 brk(NULL)                         = 0x55fb8300d000
+14925 arch_prctl(0x3001 /* ARCH_??? */, 0x7fff19965040) = -1 EINVAL (Invalid argument)
+14925 mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f86ef701000
+14925 access("/etc/ld.so.preload", R_OK) = -1 ENOENT (No such file or directory)
+14925 openat(AT_FDCWD, "/etc/ld.so.cache", O_RDONLY|O_CLOEXEC) = 3
+14925 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=65619, ...}, AT_EMPTY_PATH) = 0
+14925 mmap(NULL, 65619, PROT_READ, MAP_PRIVATE, 3, 0) = 0x7f86ef6f0000
+14925 close(3)                          = 0
+14925 openat(AT_FDCWD, "/lib/x86_64-linux-gnu/libc.so.6", O_RDONLY|O_CLOEXEC) = 3
+14925 read(3, "\177ELF\2\1\1\3\0\0\0\0\0\0\0\0\3\0>\0\1\0\0\0P\237\2\0\0\0\0\0"..., 832) = 832
+14925 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+14925 pread64(3, "\4\0\0\0 \0\0\0\5\0\0\0GNU\0\2\0\0\300\4\0\0\0\3\0\0\0\0\0\0\0"..., 48, 848) = 48
+14925 pread64(3, "\4\0\0\0\24\0\0\0\3\0\0\0GNU\0i8\235HZ\227\223\333\350s\360\352,\223\340."..., 68, 896) = 68
+14925 newfstatat(3, "", {st_mode=S_IFREG|0644, st_size=2216304, ...}, AT_EMPTY_PATH) = 0
+14925 pread64(3, "\6\0\0\0\4\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0@\0\0\0\0\0\0\0"..., 784, 64) = 784
+14925 mmap(NULL, 2260560, PROT_READ, MAP_PRIVATE|MAP_DENYWRITE, 3, 0) = 0x7f86ef4c8000
+14925 mmap(0x7f86ef4f0000, 1658880, PROT_READ|PROT_EXEC, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x28000) = 0x7f86ef4f0000
+14925 mmap(0x7f86ef685000, 360448, PROT_READ, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x1bd000) = 0x7f86ef685000
+14925 mmap(0x7f86ef6dd000, 24576, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_DENYWRITE, 3, 0x214000) = 0x7f86ef6dd000
+14925 mmap(0x7f86ef6e3000, 52816, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_FIXED|MAP_ANONYMOUS, -1, 0) = 0x7f86ef6e3000
+14925 close(3)                          = 0
+14925 mmap(NULL, 12288, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f86ef4c5000
+14925 arch_prctl(ARCH_SET_FS, 0x7f86ef4c5740) = 0
+14925 set_tid_address(0x7f86ef4c5a10)   = 14925
+14925 set_robust_list(0x7f86ef4c5a20, 24) = 0
+14925 rseq(0x7f86ef4c60e0, 0x20, 0, 0x53053053) = 0
+14925 mprotect(0x7f86ef6dd000, 16384, PROT_READ) = 0
+14925 mprotect(0x55fb82618000, 4096, PROT_READ) = 0
+14925 mprotect(0x7f86ef73b000, 8192, PROT_READ) = 0
+14925 prlimit64(0, RLIMIT_STACK, NULL, {rlim_cur=8192*1024, rlim_max=RLIM64_INFINITY}) = 0
+14925 munmap(0x7f86ef6f0000, 65619)     = 0
+14925 getpid()                          = 14925
+14925 newfstatat(1, "", {st_mode=S_IFCHR|0620, st_rdev=makedev(0x88, 0), ...}, AT_EMPTY_PATH) = 0
+14925 getrandom("\x69\x67\xd5\x12\x24\xd3\x7f\x04", 8, GRND_NONBLOCK) = 8
+14925 brk(NULL)                         = 0x55fb8300d000
+14925 brk(0x55fb8302e000)               = 0x55fb8302e000
+14925 write(1, " My pid = 14925 \n", 17) = 17
+14925 clone(child_stack=NULL, flags=CLONE_CHILD_CLEARTID|CLONE_CHILD_SETTID|SIGCHLD, child_tidptr=0x7f86ef4c5a10) = 14926
+14926 set_robust_list(0x7f86ef4c5a20, 24 <unfinished ...>
+14925 getpid( <unfinished ...>
+14926 <... set_robust_list resumed>)    = 0
+14925 <... getpid resumed>)             = 14925
+14926 getpid( <unfinished ...>
+14925 write(1, " My pid = 14925 \n", 17 <unfinished ...>
+14926 <... getpid resumed>)             = 14926
+14925 <... write resumed>)              = 17
+14925 write(1, " Newly created child pid = 14926"..., 34) = 34
+14926 write(1, " child: My pid = 14926 \n", 24 <unfinished ...>
+14925 exit_group(0 <unfinished ...>
+14926 <... write resumed>)              = 24
+14925 <... exit_group resumed>)         = ?
+14926 exit_group(0)                     = ?
+14925 +++ exited with 0 +++
+14926 +++ exited with 0 +++

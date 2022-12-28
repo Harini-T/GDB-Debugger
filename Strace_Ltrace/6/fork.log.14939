@@ -1,0 +1,5 @@
+set_robust_list(0x7f13fdef5a20, 24)     = 0
+getpid()                                = 14939
+write(1, " child: My pid = 14939 \n", 24) = 24
+exit_group(0)                           = ?
++++ exited with 0 +++
