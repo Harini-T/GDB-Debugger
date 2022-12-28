@@ -26,3 +26,11 @@ d. -v
 a. true
 b. false
 
+
+
+Ans:
+1. a
+2. c
+3. a
+4. a
+5. a

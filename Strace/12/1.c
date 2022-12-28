@@ -14,7 +14,7 @@ int main()
 	int counter_limit;
 	FILE *ptr_myfile;
 
-	counter_limit = 1000;
+	counter_limit = 500;
 
 	ptr_myfile=fopen("test.bin","wb");
 	if (!ptr_myfile)
